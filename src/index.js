@@ -11,6 +11,7 @@ class Game extends Phaser.Game {
     super(config);
     // include any scenes in the game
     this.scene.add("Lobby", Lobby);
+
     this.scene.add("Engineering", Engineering);
     this.scene.add("Technology", Technology);
     this.scene.start("Technology", Technology);

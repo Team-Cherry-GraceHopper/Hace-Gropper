@@ -74,18 +74,6 @@
                  "width":32,
                  "x":671.875,
                  "y":33.875
-                }, 
-                {
-                 "gid":536,
-                 "height":32,
-                 "id":25,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":671.875,
-                 "y":1.875
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -109,18 +97,6 @@
                  "width":32,
                  "x":480.182,
                  "y":33.8182
-                }, 
-                {
-                 "gid":536,
-                 "height":32,
-                 "id":23,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":480.17,
-                 "y":2.02273
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -144,18 +120,6 @@
                  "width":32,
                  "x":288.136,
                  "y":32.6818
-                }, 
-                {
-                 "gid":536,
-                 "height":32,
-                 "id":21,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":288.182,
-                 "y":1.09091
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -179,18 +143,6 @@
                  "width":32,
                  "x":96.0833,
                  "y":32.7917
-                }, 
-                {
-                 "gid":536,
-                 "height":32,
-                 "id":16,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":96.0833,
-                 "y":1.16667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -266,7 +218,7 @@
          "name":"Curtains",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":25,
          "x":0,
          "y":0
