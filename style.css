@@ -268,6 +268,7 @@ nav {
   margin-top: auto;
 }
 .techguess {
+  display: inline-block;
   margin-left: 0%;
   margin-top: auto;
 }
