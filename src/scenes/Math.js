@@ -115,8 +115,8 @@ export default class Math extends Phaser.Scene {
     let lobbyClues = document.getElementById("clue-list");
     lobbyClues.classList.add("hidden");
 
-    let mathCluesText = document.getElementById('math-clues');
-    mathCluesText.classList.remove('hidden');
+    // let mathCluesText = document.getElementById('math-clues');
+    // mathCluesText.classList.remove('hidden');
 
     const map = this.make.tilemap({
       key: "mathMap",

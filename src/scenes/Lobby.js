@@ -75,6 +75,7 @@ function submitLName() {
     console.log("yoooo");
     let nameguess = document.getElementById("nameLguess");
     nameguess.classList.add("hidden");
+    lobbyClues.classList.toggle("hidden");
     let lobbyClues = document.getElementById("clue-list");
     lobbyClues.classList.add("hidden");
     let lobbyScene = document.getElementById("lobbyscene");
@@ -93,7 +94,7 @@ function submitLName() {
     let nameguess = document.getElementById("nameLguess");
     nameguess.classList.add("hidden");
     let lobbyScene = document.getElementById("lobbyscene");
-    sciScene.innerHTML = "<b>Lobby</b>: Grace Hopper";
+    lobbyScene.innerHTML = "<b>Lobby</b>: Grace Hopper";
   } else {
     nameGuessCount++;
   }
