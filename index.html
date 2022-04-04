@@ -4,15 +4,16 @@
     <title>Hace Gropper</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
+    <div id="title">
+      <h1>Welcome to Hace Gropper</h1>
+    </div>
+    
   </head>
   <body>
-    <div id="game-body">
-    <div id="title">
-      <h1>Welcome to Hace Gropper!</h1>
-    </div>
     <p id="dialogue">
-      Your sprite says ... <text>try looking around the room a bit!</text>
+      YOUR SPRITE SAYS: <text id="inner">try looking around the room a bit!</text>
     </p>
+    <div id="game-body">
     <button id="restart-hg">Start Game Over</button> <br />
     <table id="main-menu">
       <tbody>
@@ -24,22 +25,33 @@
         <tr id="mathscene" style="font-size: small;"></tr>
       </tbody>
     </table>
+
     <div id="rules">
       <h3 style="text-align: center">How to Play</h3>
+
       <p>
         <img src="/public/assets/images/keyArrows.png" /> <br />
-        <!-- move left: left arrow <br />
-        move right: right arrow<br />
-        move up: up arrow <br />
-        move down: down arrow <br /> -->
-        Move about the room to explore clues in each room. 
+      
+      <p><b>
+        HERES HOW TO PLAY:
+      </b>
       </p>
       <p>
-        The name of the game is to find all the clues ... <br />
-        ... guessing the sprite's name is entirely up to you!
+        1) walk your little character (sprite) around the room
+        <p>
+           each sprite is a Woman in STEM
+           <p>
+        2) discover clues about your sprite's REAL life by bumping into special objects
+        <p>
+        3) collect all the clues to unlock a guesssbox
+        <p>
+        4) you have 3 guesses before your sprite's name is revealed 
+        <p>
+        5) collect all the sprite names to BEAT THE GAME
       </p>
-      <button id="play-maingame-btn">Let's Play!</button>
+      <button id="play-maingame-btn">Let's Play!</button> -->
     </div>
+
     <div id="root"></div>
     <div id="clue-container">
       <div>
@@ -117,8 +129,9 @@
       <li id=27 class="hidden" style="padding-left: 15px;">A major milestone in my career was working with Mead on our Intro to VLSI Design textbook, which promptly took the nation's universities by storm, selling over 70,000 copies and nicknamed "the  chip designer's bible"</li>
       <li id=28 class="hidden" style="padding-left: 15px;">- In 2013,I lobbied a board of directors of the Institute of Electrical and Electronics Engineers (the largest engineering professional society) for transgender inclusion in the IEEE’s Code of Ethics.</li>
     </ul>
-    <div id=29 class="hidden" style="padding-left: 15px; color: white;"> - I AM !!!!LYNN CONWAY!!!!!</div>
-    <div id=299 class="hidden" style="padding-left: 15px; color: white;"> - CONGRATS YOU GOT IT !!!!LYNN CONWAY!!!!!</div>
+    </div>
+    <div id ="guessContainer" class="hidden"></br>PRIDE FLAG GUESSES</div>
+    
     
     <div id="nameMguess" class="hidden"></form>
       <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
@@ -139,7 +152,7 @@
 </div>
 
     <div id="game" class="hidden">
-      <nav>
+      <nav >
         <h1>Scrammbled Words</h1>
         <div id="scrammblerules">
           <p class="lead">Unscrammble the words.</p>
@@ -226,8 +239,9 @@
             </select>
             <input type="button" button id="bumsit" value="Submit" />
       </form>
+      
         </div>
-        <div class = "playerGuess" id ="guessContainer"></br>GUESSES</div>
+        
       </div>
       </div>
 
@@ -235,9 +249,9 @@
 <div id="memory" class="hidden">
   <h2 style="color: white">Memory Game</h2>
   <p style="color: white">Flip over tiles to find each match!</p>
-  <h3 id="win" class="hidden" style="color: firebrick;">You win!</h3>
+  <h3 id="win" class="hidden" style="color: firebrick; border-color: white;">You win!</h3>
   <button id="mem-exit">Exit</button>
-  <div class="container">
+  <div class="mem-container">
       <div class="card" id ="mem1">
           <img class="front" src="/public/assets/images/memory/strawberry.jpg"/>
           <img class="back" src="/public/assets/images/memory/qmark.png" />

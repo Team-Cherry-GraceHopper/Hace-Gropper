@@ -9,7 +9,7 @@ let nameGuessTCount = 1;
 let guessButton = document.getElementById("subtname");
 let firstnameTGuess = document.getElementById("firstnametguess");
 let lastnameTGuess = document.getElementById("lastnametguess");
-let nameguess = document.getElementById("nameTguess");
+let nameTguess = document.getElementById("nameTguess");
 
 function submitTName() {
   const firstNameGuess = firstnameTGuess.value.toUpperCase();
@@ -18,21 +18,19 @@ function submitTName() {
     (firstNameGuess === "LYNN" && lastNameGuess === "CONWAY") ||
     (firstNameGuess === "" && lastNameGuess === "CONWAY")
   ) {
-    nameguess.classList.toggle("hidden");
+    nameTguess.classList.toggle("hidden");
     localStorage.setItem("tech", "complete");
     nameGuessTCount = 0;
-    let win = document.getElementById("299");
     let techClues = document.getElementById("tech-clues");
     techClues.classList.add("hidden");
-    win.classList.toggle("hidden");
-    nameguess.classList.add("hidden");
+
+    nameTguess.classList.add("hidden");
     let techScene = document.getElementById("techscene");
     techScene.innerHTML = "<b>Technology Room</b>: Lynn Conway";
   } else if (nameGuessTCount === 3) {
-    nameguess.classList.toggle("hidden");
+    nameTguess.classList.toggle("hidden");
     localStorage.setItem("tech", "complete");
-    let lose = document.getElementById("29");
-    lose.classList.toggle("hidden");
+
     let techScene = document.getElementById("techscene");
     techScene.innerHTML = "<b>Technology Room</b>: Lynn Conway";
   } else {
@@ -42,7 +40,7 @@ function submitTName() {
   lastnameTGuess.value = "";
 }
 function checkName() {
-  nameguess.classList.toggle("hidden");
+  nameTguess.classList.toggle("hidden");
   guessButton.addEventListener("click", submitTName);
 }
 export default class Technology extends Phaser.Scene {
@@ -96,7 +94,7 @@ export default class Technology extends Phaser.Scene {
       clue28.classList.remove("hidden");
       let count = document.getElementById("tClueCount");
       count.innerText = localCount;
-      let dialogue = document.getElementById("dialogue");
+      let dialogue = document.getElementById("inner");
       dialogue.innerText =
         "Great job! Why don't we head back to the main lobby?";
       checkName();
@@ -108,7 +106,7 @@ export default class Technology extends Phaser.Scene {
     lobbyClues.classList.add("hidden");
     console.log("hi", this.cache.tilemap.get("techMap").data);
     //this.add.image(275, 275, "Floor");
-    const nameGuess = document.getElementById("nameTguess");
+    const nameTGuess = document.getElementById("nameTguess");
 
     const map = this.make.tilemap({
       key: "techMap",
@@ -212,8 +210,8 @@ export default class Technology extends Phaser.Scene {
       clue28.classList.remove("hidden");
     }
     let localCount = localStorage.getItem("tcount");
-    if (localCount === 4) {
-      let dialogue = document.getElementById("dialogue");
+    if (localCount === "4") {
+      let dialogue = document.getElementById("inner");
       dialogue.innerText =
         "Great job! Why don't we head back to the main lobby?";
       checkName();
@@ -240,10 +238,6 @@ export default class Technology extends Phaser.Scene {
       this.scene.start("Pridle");
     } else {
       techClues.classList.add("hidden");
-      let win = document.getElementById("299");
-      win.classList.add("hidden");
-      let lose = document.getElementById("29");
-      lose.classList.add("hidden");
       let lobbyClues = document.getElementById("clue-list");
       lobbyClues.classList.toggle("hidden");
       this.scene.start("Lobby");

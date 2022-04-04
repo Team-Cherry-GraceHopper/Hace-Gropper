@@ -23,8 +23,8 @@ function submitSName() {
     console.log("yoooo");
     let nameguess = document.getElementById("nameSguess");
     nameguess.classList.add("hidden");
-    let sciClues = document.getElementById("science-clues");
-    sciClues.classList.add("hidden");
+    // let sciClues = document.getElementById("science-clues");
+    scienceClues.classList.toggle("hidden");
     let sciScene = document.getElementById("sciscene");
     sciScene.innerHTML = "<b>Science Room</b>: Rosalind Franklin";
     let sciBlock = document.getElementById("science-clues");
@@ -182,7 +182,7 @@ export default class Science extends Phaser.Scene {
     }
     let localCount = localStorage.getItem("scount");
     if (localCount === "4") {
-      let dialogue = document.getElementById("dialogue");
+      let dialogue = document.getElementById("inner");
       dialogue.innerText =
         "You did it! Why don't you go back to the main lobby?";
       // clue3.classList.toggle("hidden");

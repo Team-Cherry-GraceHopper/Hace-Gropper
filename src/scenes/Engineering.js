@@ -248,7 +248,7 @@ export default class Engineering extends Phaser.Scene {
     let localCount = localStorage.getItem("ecount");
     if (localCount === "5") {
       localStorage.setItem("eng", "complete");
-      let dialogue = document.getElementById("dialogue");
+      let dialogue = document.getElementById("inner");
       dialogue.innerText = "You did it!";
       // setTimeout(() => {
       //   clue7.classList.toggle("hidden");

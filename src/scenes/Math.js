@@ -105,7 +105,7 @@ export default class Math extends Phaser.Scene {
       clue33.classList.remove("hidden");
       let count = document.getElementById("mathClueCount");
       count.innerText = localCount;
-      let dialogue = document.getElementById("dialogue");
+      let dialogue = document.getElementById("inner");
       dialogue.innerText =
         "Great job! Why don't we head back to the main lobby?";
       checkName();
@@ -115,8 +115,8 @@ export default class Math extends Phaser.Scene {
     let lobbyClues = document.getElementById("clue-list");
     lobbyClues.classList.add("hidden");
 
-    // let mathCluesText = document.getElementById('math-clues');
-    // mathCluesText.classList.remove('hidden');
+    let mathCluesText = document.getElementById('math-clues');
+    mathCluesText.classList.remove('hidden');
 
     const map = this.make.tilemap({
       key: "mathMap",
@@ -234,7 +234,7 @@ export default class Math extends Phaser.Scene {
 
     let localCount = localStorage.getItem("mcount");
     if (localCount === "3") {
-      let dialogue = document.getElementById("dialogue");
+      let dialogue = document.getElementById("inner");
       dialogue.innerText =
         "Great job! Why don't we head back to the main lobby?";
       checkName();
@@ -260,6 +260,8 @@ export default class Math extends Phaser.Scene {
   }
 
   exit() {
+    let nameguess = document.getElementById("nameMguess");
+    nameguess.classList.add("hidden");
     mathClueList.classList.add("hidden");
     this.scene.stop("Math");
     this.scene.start("Lobby", Lobby);

@@ -12,6 +12,10 @@ export default class Pridle extends Phaser.Scene {
   }
 
   create() {
+    let techClues = document.getElementById("tech-clues");
+    techClues.classList.add("hidden");
+    let lobbyClues = document.getElementById("clue-list");
+    lobbyClues.classList.add("hidden");
     const flagArr = [
       "Agender2014",
       "Aromantic",
@@ -57,12 +61,10 @@ export default class Pridle extends Phaser.Scene {
     function exitRoom() {
       let techClues = document.getElementById("tech-clues");
       techClues.classList.add("hidden");
-      let win = document.getElementById("299");
-      win.classList.add("hidden");
-      let lose = document.getElementById("29");
       let lobbyClues = document.getElementById("clue-list");
       lobbyClues.classList.remove("hidden");
-      lose.classList.add("hidden");
+      let nameGuess = document.getElementById("guessContainer");
+      nameGuess.classList.add("hidden");
       pridle.scene.stop("Pridle");
       pridle.scene.start("Lobby");
       pridleGame.classList.add("hidden");

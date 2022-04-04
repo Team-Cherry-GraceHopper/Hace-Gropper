@@ -21,16 +21,16 @@
    <image width="16" height="16" source="../images/RocketGrey.png"/>
   </tile>
   <tile id="5">
-   <image width="16" height="16" source="../images/RocketWhite.png"/>
+   <image width="24" height="24" source="../images/RocketWhite.png"/>
   </tile>
   <tile id="6">
    <image width="16" height="16" source="../images/Satellite.png"/>
   </tile>
   <tile id="7">
-   <image width="28" height="20" source="../images/Calculator.png"/>
+   <image width="20" height="14" source="../images/Calculator.png"/>
   </tile>
   <tile id="8">
-   <image width="24" height="27" source="../images/PMoF.png"/>
+   <image width="18" height="20" source="../images/PMoF.png"/>
   </tile>
   <tile id="9">
    <image width="32" height="16" source="../images/WVSUPennant.png"/>

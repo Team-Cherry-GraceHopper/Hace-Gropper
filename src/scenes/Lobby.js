@@ -66,6 +66,11 @@ function submitLName() {
     (firstNameGuess === "" && lastNameGuess === "HOPPER")
   ) {
     localStorage.setItem("lobby", "complete");
+    let dialogue = document.getElementById("inner");
+    setTimeout(() => {
+      dialogue.innerText =
+        "Look behind those curtains at the top of the room. They each have letters...what do they mean?";
+    }, 2000);
     nameGuessCount = 1;
     console.log("yoooo");
     let nameguess = document.getElementById("nameLguess");
@@ -78,6 +83,11 @@ function submitLName() {
     lobbyBlock.classList.add("hidden");
   } else if (nameGuessCount === 3) {
     localStorage.setItem("lobby", "complete");
+    let dialogue = document.getElementById("inner");
+    setTimeout(() => {
+      dialogue.innerText =
+        "Look behind those curtains at the top of the room. They each have letters...what do they mean?";
+    }, 2000);
     let lobbyBlock = document.getElementById("clue-list");
     lobbyBlock.classList.add("hidden");
     let nameguess = document.getElementById("nameLguess");
@@ -257,20 +267,36 @@ export default class Lobby extends Phaser.Scene {
     this.player.update(this.cursors);
   }
   enterTRoom() {
+    let dialogue = document.getElementById("inner");
+    setTimeout(() => {
+      dialogue.innerText = "try looking around the room a bit!";
+    }, 2000);
     this.scene.stop("Lobby");
     this.scene.start("Technology", Technology);
   }
   enterERoom() {
+    let dialogue = document.getElementById("inner");
+    setTimeout(() => {
+      dialogue.innerText = "try looking around the room a bit!";
+    }, 2000);
     this.scene.stop("Lobby");
     this.scene.start("Engineering", Engineering);
   }
 
   enterMRoom() {
+    let dialogue = document.getElementById("inner");
+    setTimeout(() => {
+      dialogue.innerText = "try looking around the room a bit!";
+    }, 2000);
     this.scene.stop("Lobby");
     this.scene.start("Math", Math);
   }
 
   enterSRoom() {
+    let dialogue = document.getElementById("inner");
+    setTimeout(() => {
+      dialogue.innerText = "try looking around the room a bit!";
+    }, 2000);
     this.scene.stop("Lobby");
     this.scene.start("Science");
   }
@@ -305,12 +331,8 @@ export default class Lobby extends Phaser.Scene {
     let lobbyCount = localStorage.getItem("lcount");
 
     if (lobbyCount === "2") {
-      let dialogue = document.getElementById("dialogue");
-      setTimeout(() => {
-        dialogue.innerText =
-          "Look behind those curtains at the top of the room. They each have letters...what do they mean?";
-      }, 3000);
       checkLName();
+
       return false;
     }
   }
