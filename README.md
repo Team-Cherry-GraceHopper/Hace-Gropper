@@ -7,13 +7,14 @@ Hace Gropper is a web-based single player top-down educational game where player
 * [Phaser 3](https://phaser.io/)
 * [Tiled](https://www.mapeditor.org/)
 * [Hexels](https://marmoset.co/hexels/)
+* [TexturePacker](https://www.codeandweb.com/texturepacker)
 
 ## Languages
 * JavaScript
 * HTML
 * CSS
 
-## 
+## Screen shots
 
 <p align="center">
     <img width=70% src="public/assets/images/readme/how-to-play.png">
