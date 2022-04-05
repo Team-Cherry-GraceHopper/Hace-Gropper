@@ -1,7 +1,7 @@
 # Hace Gropper
 
 ## Introduction
-Hace Gropper is a web-based single player top-down educational game where players discover clues inside different rooms to learn more about famous women in STEM.
+*__Hace Gropper__* is a web-based single player top-down educational game where players discover clues inside different levels to learn more about famous women in STEM.  Players must try to guess their sprite's name while discovering a few surprises along the way!
 
 ## Libraries / Technologies
 * [Phaser 3](https://phaser.io/)
@@ -14,10 +14,15 @@ Hace Gropper is a web-based single player top-down educational game where player
 * HTML
 * CSS
 
-## Screen shots
+## Game Visuals
 
+>How To Play
 <p align="center">
     <img width=70% src="public/assets/images/readme/how-to-play.png">
+</p>
+
+>Main Lobby
+<p align="center">
     <img width=70% src="public/assets/images/readme/main-lobby.png">
 </p>
 
