@@ -26,16 +26,12 @@ function submitMName() {
     console.log("yoooo");
     let nameguess = document.getElementById("nameMguess");
     nameguess.classList.add("hidden");
-    // let win = document.getElementById("299");
     let mathClues = document.getElementById("math-clues");
     mathClues.classList.add("hidden");
-    // win.classList.toggle("hidden");
     let mathScene = document.getElementById("mathscene");
     mathScene.innerHTML = "<b>Math Room</b>: Katherine Johnson";
   } else if (nameGuessCount === 3) {
     localStorage.setItem("math", "complete");
-    // let lose = document.getElementById("29");
-    // lose.classList.toggle("hidden");
 
     let nameguess = document.getElementById("nameMguess");
     nameguess.classList.add("hidden");

@@ -32,7 +32,7 @@ function submitEName() {
     let engBlock = document.getElementById("engineering-clues");
     engBlock.classList.add("hidden");
   } else if (nameGuessCount === 3) {
-    localStorage.setItem("math", "complete");
+    localStorage.setItem("eng", "complete");
     let engBlock = document.getElementById("engineering-clues");
     engBlock.classList.add("hidden");
     let nameguess = document.getElementById("nameEguess");
