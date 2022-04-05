@@ -13,9 +13,13 @@ Hace Gropper is a web-based single player top-down educational game where player
 * HTML
 * CSS
 
+## 
+
+![](public/assets/images/readme/main-lobby.png)
+
 ## How to run the game locally
 
-1. Fork and Clone this repo.
+1. Fork and clone this repo.
 2. Install dependences with `npm install`.
 3. Start build process with `npm run build`.
 
@@ -25,7 +29,3 @@ Hace Gropper is a web-based single player top-down educational game where player
 | `npm start` | Build project and open web server running project |
 | `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
 
-
-### Webpack
-
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
