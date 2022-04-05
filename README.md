@@ -15,7 +15,7 @@ Hace Gropper is a web-based single player top-down educational game where player
 
 ## 
 
-![](public/assets/images/readme/main-lobby.png)
+<img src="public/assets/images/readme/main-lobby.png" width="100" height="100">
 
 ## How to run the game locally
 
