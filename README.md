@@ -25,7 +25,7 @@
 
 >Discover clues as you explore!
 <p align="center">
-    <img width=60% src="public/assets/images/readme/clue-box.png">
+    <img width=30% src="public/assets/images/readme/clue-box.png">
 </p>
 
 
