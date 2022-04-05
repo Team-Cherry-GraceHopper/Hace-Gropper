@@ -44,6 +44,7 @@ function checkName() {
   guessButton.addEventListener("click", submitTName);
 }
 export default class Technology extends Phaser.Scene {
+
   constructor() {
     super({ key: "Technology" });
   }
@@ -104,7 +105,6 @@ export default class Technology extends Phaser.Scene {
     }
     let lobbyClues = document.getElementById("clue-list");
     lobbyClues.classList.add("hidden");
-    console.log("hi", this.cache.tilemap.get("techMap").data);
     //this.add.image(275, 275, "Floor");
     const nameTGuess = document.getElementById("nameTguess");
 
@@ -145,13 +145,13 @@ export default class Technology extends Phaser.Scene {
       bookTiles,
     ]);
 
-    this.player = new Player(this, 470, 590, "LYNN").setScale(1.1); //Joe is pleased
-    this.createAnimations(); //maybe also move this to player class?
+    this.player = new Player(this, 470, 590, "LYNN").setScale(1.1); 
+    this.createAnimations(); 
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
     bumpLayer.setCollisionByExclusion([-1]);
-    this.physics.add.collider(this.player, bumpLayer); // move this to PLayer class
+    this.physics.add.collider(this.player, bumpLayer); 
 
     let techClues = map.getObjectLayer("ClueObjects")["objects"];
     let door = map.getObjectLayer("DOOR")["objects"];
@@ -180,14 +180,12 @@ export default class Technology extends Phaser.Scene {
   }
   tCollect(player, object) {
     if (localStorage.getItem(object.texture.key)) {
-      // need to work on this
       console.log("You already found that clue!");
       return false;
     }
     tClueCount += 1;
     localStorage.setItem("tcount", tClueCount);
     object.destroy(object.x, object.y);
-    // text.setText(`Clues: y`); // set the text to show the current score
     let clue25 = document.getElementById("25");
     let clue26 = document.getElementById("26");
     let clue27 = document.getElementById("27");
