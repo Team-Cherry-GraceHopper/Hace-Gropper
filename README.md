@@ -36,5 +36,5 @@
 |---------|-------------|
 | `npm install` | Installs project dependencies |
 | `npm start` | Builds project and opens web server running project |
-| `npm run build` | Builds code bundle with production settings |
+| `npm run build` | Builds code bundle |
 
