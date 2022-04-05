@@ -23,6 +23,12 @@
     <img width=60% src="public/assets/images/readme/how-to-play.png">
 </p>
 
+>Discover clues as you explore!
+<p align="center">
+    <img width=60% src="public/assets/images/readme/clue-box.png">
+</p>
+
+
 ## How to run the game locally
 
 1. Fork and clone this repo.
