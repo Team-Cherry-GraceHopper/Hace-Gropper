@@ -18,12 +18,12 @@
 
 >How To Play
 <p align="center">
-    <img width=70% src="public/assets/images/readme/how-to-play.png">
+    <img width=60% src="public/assets/images/readme/how-to-play.png">
 </p>
 
 >Main Lobby
 <p align="center">
-    <img width=70% src="public/assets/images/readme/main-lobby.png">
+    <img width=60% src="public/assets/images/readme/main-lobby.png">
 </p>
 
 ## How to run the game locally
