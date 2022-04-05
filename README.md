@@ -1,5 +1,7 @@
 # Hace Gropper
 
+![hg-main](https://user-images.githubusercontent.com/95086147/161856610-7f18d948-c9c1-4364-b127-7f7195e94bcc.gif)
+
 ## Introduction
 *__Hace Gropper__* is a web-based single player top-down educational game where players discover clues inside different levels to learn more about famous women in STEM.  Players must try to guess their sprite's name while discovering a few surprises along the way!
 
