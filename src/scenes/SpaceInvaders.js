@@ -310,8 +310,6 @@ export default class SpaceInvaders extends Phaser.Scene {
     //   shootSound.stop();
     //   move.stop()
 
-    //   winText = this.add.text(400, 300, `You did it!\nOur astronauts are in safe hands!\n Score: ` + score, { fontSize: '22px', fill: '#FFF', align: 'center' })
-
       alert(`You did it!\nOur astronauts are in safe hands!\n Score: ` + score);
       this.scene.stop("SpaceInvaders");
       this.scene.start("Math", Math);
@@ -321,10 +319,15 @@ export default class SpaceInvaders extends Phaser.Scene {
         //   explosionSound.stop();
         //   bigInvaderSound.stop();
         //   shootSound.stop();
+<<<<<<< HEAD
         //   move.stop()
     
         //   winText = this.add.text(400, 300, `You did it!\nOur astronauts are in safe hands!\n Score: ` + score, { fontSize: '22px', fill: '#FFF', align: 'center' })
     
       alert(`You Lost :( \n Score: ` + score);
+=======
+        //   move.stop()    
+          alert(`You Lost :( \n Score: ` + score);
+>>>>>>> 083665ac41ebe18f8cc1b9c0eaa22181f07c242f
     }
   }

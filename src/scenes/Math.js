@@ -13,6 +13,7 @@ let guessButton = document.getElementById("submname");
 let firstnameMGuess = document.getElementById("firstnamemguess");
 let lastnameMGuess = document.getElementById("lastnamemguess");
 let nameguess = document.getElementById("nameMguess");
+
 function submitMName() {
   const firstnameGuess = firstnameMGuess.value.toUpperCase();
   const lastnameGuess = lastnameMGuess.value.toUpperCase();
@@ -25,19 +26,14 @@ function submitMName() {
     console.log("yoooo");
     let nameguess = document.getElementById("nameMguess");
     nameguess.classList.add("hidden");
-    // let win = document.getElementById("299");
-    // let mathClues = document.getElementById("math-clues");
-    // mathClues.classList.add("hidden");
-    mathClues.classList.toggle("hidden");
-    // win.classList.toggle("hidden");
+    let mathClues = document.getElementById("math-clues");
+    mathClues.classList.add("hidden");
     let mathScene = document.getElementById("mathscene");
     mathScene.innerHTML = "<b>Math Room</b>: Katherine Johnson";
     let mathBlock = document.getElementById("math-clues");
     mathBlock.classList.add("hidden");
   } else if (nameGuessCount === 3) {
     localStorage.setItem("math", "complete");
-    let mathBlock = document.getElementById("math-clues");
-    mathBlock.classList.add("hidden");
     let nameguess = document.getElementById("nameMguess");
     nameguess.classList.add("hidden");
     let mathScene = document.getElementById("mathscene");
@@ -51,7 +47,6 @@ function submitMName() {
 
 function checkMName() {
   nameguess.classList.toggle("hidden");
-  console.log("pleaseeee");
   guessButton.addEventListener("click", submitMName);
 }
 
@@ -91,9 +86,9 @@ export default class Math extends Phaser.Scene {
   }
 
   create() {
-    console.log(this.cache.tilemap.get("mathMap").data);
-    
-    // let localCount = localStorage.getItem("mcount");
+
+    let localCount = localStorage.getItem("mcount");
+
     if (localStorage.getItem("math") === "complete") {
       mathClues.classList.toggle("hidden");
     // } else if (localCount === "4") {
@@ -204,14 +199,12 @@ export default class Math extends Phaser.Scene {
 
   mCollect(player, object) {
     if (localStorage.getItem(object.texture.key)) {
-      console.log("You already found this clue!");
       return false;
     }
     mathClueCount += 1;
     localStorage.setItem("mcount", mathClueCount);
     object.destroy(object.x, object.y);
 
-    // text.setText(`Clues: y`); // set the text to show the current score
     let clue30 = document.getElementById("30");
     let clue31 = document.getElementById("31");
     let clue32 = document.getElementById("32");
