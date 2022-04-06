@@ -11,6 +11,7 @@ let guessButton = document.getElementById("subsname");
 let firstnameSGuess = document.getElementById("firstnamesguess");
 let lastnameSGuess = document.getElementById("lastnamesguess");
 let nameguess = document.getElementById("nameSguess");
+
 function submitSName() {
   const firstNameGuess = firstnameSGuess.value.toUpperCase();
   const lastNameGuess = lastnameSGuess.value.toUpperCase();
@@ -23,7 +24,6 @@ function submitSName() {
     console.log("yoooo");
     let nameguess = document.getElementById("nameSguess");
     nameguess.classList.add("hidden");
-    // let sciClues = document.getElementById("science-clues");
     scienceClues.classList.toggle("hidden");
     let sciScene = document.getElementById("sciscene");
     sciScene.innerHTML = "<b>Science Room</b>: Rosalind Franklin";
@@ -46,10 +46,10 @@ function submitSName() {
 
 function checkSName() {
   nameguess.classList.toggle("hidden");
-  console.log("pleaseeee");
   guessButton.addEventListener("click", submitSName);
 }
 export default class Science extends Phaser.Scene {
+
   constructor() {
     super("Science");
   }
@@ -79,7 +79,6 @@ export default class Science extends Phaser.Scene {
   }
 
   create() {
-    console.log(this.cache.tilemap.get("sciMap").data);
 
     if (localStorage.getItem("science") === "complete") {
       scienceClues.classList.toggle("hidden");
@@ -148,7 +147,6 @@ export default class Science extends Phaser.Scene {
 
   collect(player, object) {
     if (localStorage.getItem(object.texture.key)) {
-      // need to work on this
       console.log("You already found that clue!");
       return false;
     }
@@ -156,7 +154,7 @@ export default class Science extends Phaser.Scene {
     sciClueCount += 1;
     localStorage.setItem("scount", sciClueCount);
     object.destroy(object.x, object.y);
-    // text.setText(`Clues: y`); // set the text to show the current score
+
     let clue3 = document.getElementById("3");
     let clue4 = document.getElementById("4");
     let clue5 = document.getElementById("5");
@@ -184,17 +182,8 @@ export default class Science extends Phaser.Scene {
     if (localCount === "4") {
       let dialogue = document.getElementById("inner");
       dialogue.innerText =
-        "You did it! Why don't you go back to the main lobby?";
-      // clue3.classList.toggle("hidden");
-      // clue4.classList.toggle("hidden");
-      // clue5.classList.toggle("hidden");
-      // clue6.classList.toggle("hidden");
-      // clue101.classList.remove("hidden");
-      // let count = document.getElementById("sciClueCount");
-      // count.innerText = localCount;
-
+        "You did it! Why don't you go back to the main lobby?"
       checkSName();
-
       return false;
     }
   }
