@@ -22,7 +22,7 @@
 
 >How To Play
 <p align="center">
-    <img width=60% src="public/assets/images/readme/how-to-play.png">
+    <img width=50% src="public/assets/images/readme/how-to-play.png">
 </p>
 
 >Discover clues as you explore!
