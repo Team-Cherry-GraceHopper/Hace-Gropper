@@ -27,7 +27,10 @@
 
 >Discover clues as you explore!
 <p align="center">
-    <img width=60% src="public/assets/images/readme/clue-box.png">
+    <img width=40% src="public/assets/images/readme/mathSS">
+    <img width=40% src="public/assets/images/readme/scienceSS">
+    <img width=40% src="public/assets/images/readme/techSS">
+    <img width=40% src="public/assets/images/readme/engSS">
 </p>
 
 
