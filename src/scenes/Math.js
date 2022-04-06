@@ -8,17 +8,17 @@ let door;
 let rocket;
 let mathClueCount = 0;
 let nameGuessCount = 1;
-let mathClueList = document.getElementById("math-clues");
+let mathClues = document.getElementById("math-clues");
 let guessButton = document.getElementById("submname");
-let firstnameGuess = document.getElementById("firstnamemguess");
-let lastnameGuess = document.getElementById("lastnamemguess");
+let firstnameMGuess = document.getElementById("firstnamemguess");
+let lastnameMGuess = document.getElementById("lastnamemguess");
 let nameguess = document.getElementById("nameMguess");
 function submitMName() {
-  const firstNameGuess = firstnameGuess.value.toUpperCase();
-  const lastNameGuess = lastnameGuess.value.toUpperCase();
+  const firstnameGuess = firstnameMGuess.value.toUpperCase();
+  const lastnameGuess = lastnameMGuess.value.toUpperCase();
   if (
-    (firstNameGuess === "KATHERINE" && lastNameGuess === "JOHNSON") ||
-    (firstNameGuess === "" && lastNameGuess === "JOHNSON")
+    (firstnameGuess === "KATHERINE" && lastnameGuess === "JOHNSON") ||
+    (firstnameGuess === "" && lastnameGuess === "JOHNSON")
   ) {
     localStorage.setItem("math", "complete");
     nameGuessCount = 0;
@@ -26,16 +26,18 @@ function submitMName() {
     let nameguess = document.getElementById("nameMguess");
     nameguess.classList.add("hidden");
     // let win = document.getElementById("299");
-    let mathClues = document.getElementById("math-clues");
-    mathClues.classList.add("hidden");
+    // let mathClues = document.getElementById("math-clues");
+    // mathClues.classList.add("hidden");
+    mathClues.classList.toggle("hidden");
     // win.classList.toggle("hidden");
     let mathScene = document.getElementById("mathscene");
     mathScene.innerHTML = "<b>Math Room</b>: Katherine Johnson";
+    let mathBlock = document.getElementById("math-clues");
+    mathBlock.classList.add("hidden");
   } else if (nameGuessCount === 3) {
     localStorage.setItem("math", "complete");
-    // let lose = document.getElementById("29");
-    // lose.classList.toggle("hidden");
-
+    let mathBlock = document.getElementById("math-clues");
+    mathBlock.classList.add("hidden");
     let nameguess = document.getElementById("nameMguess");
     nameguess.classList.add("hidden");
     let mathScene = document.getElementById("mathscene");
@@ -43,15 +45,16 @@ function submitMName() {
   } else {
     nameGuessCount++;
   }
-  firstnameGuess.value = "";
-  lastnameGuess.value = "";
+  firstnameMGuess.value = "";
+  lastnameMGuess.value = "";
 }
 
-function checkName() {
+function checkMName() {
   nameguess.classList.toggle("hidden");
   console.log("pleaseeee");
   guessButton.addEventListener("click", submitMName);
 }
+
 export default class Math extends Phaser.Scene {
   constructor() {
     super("Math");
@@ -89,28 +92,29 @@ export default class Math extends Phaser.Scene {
 
   create() {
     console.log(this.cache.tilemap.get("mathMap").data);
-    let localCount = localStorage.getItem("mcount");
+    
+    // let localCount = localStorage.getItem("mcount");
     if (localStorage.getItem("math") === "complete") {
-      mathClueList.classList.toggle("hidden");
-    } else if (localCount === "4") {
-      let mathClues = document.getElementById("math-clues");
-      mathClues.classList.remove("hidden");
-      let clue30 = document.getElementById("30");
-      let clue31 = document.getElementById("31");
-      let clue32 = document.getElementById("32");
-      let clue33 = document.getElementById("33");
-      clue30.classList.remove("hidden");
-      clue31.classList.remove("hidden");
-      clue32.classList.remove("hidden");
-      clue33.classList.remove("hidden");
-      let count = document.getElementById("mathClueCount");
-      count.innerText = localCount;
-      let dialogue = document.getElementById("inner");
-      dialogue.innerText =
-        "Great job! Why don't we head back to the main lobby?";
-      checkName();
+      mathClues.classList.toggle("hidden");
+    // } else if (localCount === "4") {
+    //   let mathClues = document.getElementById("math-clues");
+    //   mathClues.classList.remove("hidden");
+    //   let clue30 = document.getElementById("30");
+    //   let clue31 = document.getElementById("31");
+    //   let clue32 = document.getElementById("32");
+    //   let clue33 = document.getElementById("33");
+    //   clue30.classList.remove("hidden");
+    //   clue31.classList.remove("hidden");
+    //   clue32.classList.remove("hidden");
+    //   clue33.classList.remove("hidden");
+    //   let count = document.getElementById("mathClueCount");
+    //   count.innerText = localCount;
+    //   let dialogue = document.getElementById("inner");
+    //   dialogue.innerText =
+    //     "Great job! Why don't we head back to the main lobby?";
+    //   checkName();
     } else {
-      mathClueList.classList.remove("hidden");
+      mathClues.classList.remove("hidden");
     }
     let lobbyClues = document.getElementById("clue-list");
     lobbyClues.classList.add("hidden");
@@ -147,10 +151,10 @@ export default class Math extends Phaser.Scene {
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    let mathClues = map.getObjectLayer("MathClues")["objects"];
+    let mathClueObjs = map.getObjectLayer("MathClueObjs")["objects"];
     item = this.physics.add.staticGroup();
 
-    mathClues.forEach((object) => {
+    mathClueObjs.forEach((object) => {
       let obj = item.create(object.x, object.y, object.name);
       obj.setScale(object.width / object.width, object.height / object.height);
       obj.setOrigin(0);
@@ -200,7 +204,7 @@ export default class Math extends Phaser.Scene {
 
   mCollect(player, object) {
     if (localStorage.getItem(object.texture.key)) {
-      console.log("You already found that clue!");
+      console.log("You already found this clue!");
       return false;
     }
     mathClueCount += 1;
@@ -233,11 +237,11 @@ export default class Math extends Phaser.Scene {
     }
 
     let localCount = localStorage.getItem("mcount");
-    if (localCount === "3") {
+    if (localCount === "4") {
       let dialogue = document.getElementById("inner");
       dialogue.innerText =
         "Great job! Why don't we head back to the main lobby?";
-      checkName();
+      checkMName();
       return false;
     }
   }
@@ -260,11 +264,16 @@ export default class Math extends Phaser.Scene {
   }
 
   exit() {
-    let nameguess = document.getElementById("nameMguess");
-    nameguess.classList.add("hidden");
-    mathClueList.classList.add("hidden");
+    
+    // nameguess.classList.add("hidden");
+    // mathClues.classList.add("hidden");
+    let mathClues = document.getElementById("math-clues");
     this.scene.stop("Math");
-    this.scene.start("Lobby", Lobby);
+    // const num = localStorage.getItem("mcount");
+    mathClues.classList.add("hidden");
+    let lobbyClues = document.getElementById("clue-list");
+    lobbyClues.classList.toggle("hidden");
+    this.scene.start("Lobby");
   }
 
   createAnimations() {

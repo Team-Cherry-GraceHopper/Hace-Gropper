@@ -325,6 +325,6 @@ export default class SpaceInvaders extends Phaser.Scene {
     
         //   winText = this.add.text(400, 300, `You did it!\nOur astronauts are in safe hands!\n Score: ` + score, { fontSize: '22px', fill: '#FFF', align: 'center' })
     
-          alert(`You Lost :( \n Score: ` + score);
+      alert(`You Lost :( \n Score: ` + score);
     }
   }
