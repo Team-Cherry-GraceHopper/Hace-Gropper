@@ -5,6 +5,8 @@
 ## Introduction
 *__Hace Gropper__* is a web-based single player top-down educational game where players discover clues inside different levels to learn more about famous women in STEM.  Players must try to guess their sprite's name while discovering a few surprises along the way!
 
+>Looking for a 60 second summary of our game? Check out this video!
+
 ## Tools / Technologies
 * [Phaser 3](https://phaser.io/)
 * [Tiled](https://www.mapeditor.org/)
@@ -20,12 +22,15 @@
 
 >How To Play
 <p align="center">
-    <img width=60% src="public/assets/images/readme/how-to-play.png">
+    <img width=50% src="public/assets/images/readme/how-to-play.png">
 </p>
 
 >Discover clues as you explore!
 <p align="center">
-    <img width=30% src="public/assets/images/readme/clue-box.png">
+    <img width=45% src="public/assets/images/readme/scienceSS.png">
+    <img width=45% src="public/assets/images/readme/mathSS.png">
+    <img width=45% src="public/assets/images/readme/techSS.png">
+    <img width=45% src="public/assets/images/readme/engSS.png">
 </p>
 
 
