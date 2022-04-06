@@ -27,10 +27,10 @@
 
 >Discover clues as you explore!
 <p align="center">
-    <img width=40% src="public/assets/images/readme/mathSS">
-    <img width=40% src="public/assets/images/readme/scienceSS">
-    <img width=40% src="public/assets/images/readme/techSS">
-    <img width=40% src="public/assets/images/readme/engSS">
+    <img width=40% src="public/assets/images/readme/mathSS.png">
+    <img width=40% src="public/assets/images/readme/scienceSS.png">
+    <img width=40% src="public/assets/images/readme/techSS.png">
+    <img width=40% src="public/assets/images/readme/engSS.png">
 </p>
 
 
