@@ -1,6 +1,8 @@
 import Phaser from "phaser";
+
 let meItem;
 let lText;
+let music;
 
 export default class EndCreds extends Phaser.Scene {
 
@@ -28,6 +30,9 @@ export default class EndCreds extends Phaser.Scene {
       "TeamCherry",
       "../public/assets/images/pridleflags/teamcherry.png"
     );
+
+    this.load.audio("endMusic", ["../public/assets/audio/loading.wav"]);
+
     this.load.image("katherine", "../public/assets/sprites/katherine.png");
     this.load.image("mary", "../public/assets/sprites/marySprite.png");
     this.load.image("rosalind", "../public/assets/sprites/rosalind.png");
@@ -35,6 +40,8 @@ export default class EndCreds extends Phaser.Scene {
   }
 
   create() {
+    music = this.sound.add("endMusic", { loop: true });
+    music.play();
     const info = document.getElementById("rules");
     info.classList.add("hidden");
 

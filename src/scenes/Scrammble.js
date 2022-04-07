@@ -9,9 +9,12 @@ export default class Scrammble extends Phaser.Scene {
   preload() {
     this.cameras.main.backgroundColor =
       Phaser.Display.Color.HexStringToColor("#000000");
+      this.load.audio("minigame", ["../public/assets/audio/song.wav", "../public/assets/audio/song.ogg"]);
   }
 
   create() {
+    const music = this.sound.add("minigame", { loop: true });
+    music.play();
     const scrammble = this;
     const game = document.getElementById("game");
     const userGuess = document.getElementById("user-guess");
@@ -61,6 +64,7 @@ export default class Scrammble extends Phaser.Scene {
 
     function exitScrammble() {
       scrammble.scene.stop("Scrammble");
+      music.stop();
       scrammble.scene.start("Lobby", Lobby);
       game.classList.toggle("hidden");
       canvas.classList.remove("hidden");

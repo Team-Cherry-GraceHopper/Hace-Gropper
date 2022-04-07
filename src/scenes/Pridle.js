@@ -9,9 +9,12 @@ export default class Pridle extends Phaser.Scene {
       "Agender",
       "../public/assets/images/pridleflags/Agender2014.svg"
     );
+    this.load.audio("minigame", ["../public/assets/audio/song.wav", "../public/assets/audio/song.ogg"]);
   }
 
   create() {
+    const music = this.sound.add("minigame", { loop: true });
+    music.play();
     let techClues = document.getElementById("tech-clues");
     techClues.classList.add("hidden");
     let lobbyClues = document.getElementById("clue-list");
@@ -66,6 +69,7 @@ export default class Pridle extends Phaser.Scene {
       let nameGuess = document.getElementById("guessContainer");
       nameGuess.classList.add("hidden");
       pridle.scene.stop("Pridle");
+      music.stop();
       pridle.scene.start("Lobby");
       pridleGame.classList.add("hidden");
       canvas.classList.remove("hidden");

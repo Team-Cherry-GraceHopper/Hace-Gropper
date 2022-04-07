@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import Player from "../entities/Player";
 
+let music;
 let eItem;
 let EngineeringClues;
 let Door;
@@ -89,9 +90,13 @@ export default class Engineering extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.audio("bgMusic", ["../public/assets/audio/bgMusic.mp3"]);
+
   }
 
   create() {
+    music = this.sound.add("bgMusic", { loop: true });
+    music.play();
     if (localStorage.getItem("eng") === "complete") {
       engineeringClues.classList.toggle("hidden");
     } else {
@@ -193,6 +198,7 @@ export default class Engineering extends Phaser.Scene {
 
   exitRoom() {
     let engClues = document.getElementById("engineering-clues");
+    music.stop();
     this.scene.stop("Engineering");
     const num = localStorage.getItem("ecount");
     if (num === "5") {

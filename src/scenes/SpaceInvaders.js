@@ -16,6 +16,11 @@ let winText;
 let playerLava;
 let enemyLava;
 let bigInvaderLava;
+let badLaser;
+let goodLaser;
+let boom;
+let ufoFly;
+let music;
 
 let redLaserVelo = 200;
 let bigInvaders = [];
@@ -60,9 +65,22 @@ export default class SpaceInvaders extends Phaser.Scene {
       this.load.image('player', '../public/assets/images/RocketGrey.png');
       this.load.image('redLaser', '../public/assets/images/redLaser.png');
       this.load.image('greenLaser', '../public/assets/images/greenLaser.png');
+      this.load.audio("laserBad", ["../public/assets/audio/laser3.mp3", "../public/assets/audio/laser3.ogg"]);
+      this.load.audio("game", ["../public/assets/audio/Night on the Ice.mp3"]);
+      this.load.audio("flyingShip", ["../public/assets/audio/shipFly.wav"]);
+      this.load.audio("boom", ["../public/assets/audio/boom.wav"]);
+      this.load.audio("laserGood", ["../public/assets/audio/laser5.mp3", "../public/assets/audio/laser5.ogg"]);
     }
 
     create() {
+      music = this.sound.add("game", { loop: true });
+      badLaser = this.sound.add("laserBad", { loop: false });
+      goodLaser = this.sound.add("laserGood", { loop: false });
+      boom = this.sound.add("boom", { loop: false });
+      ufoFly = this.sound.add("flyingShip", { loop: true });
+
+
+      music.play();
       console.log("this in create", this)
       this.add.image(0, 0, 'bg').setOrigin(0, 0);
     
@@ -130,7 +148,7 @@ export default class SpaceInvaders extends Phaser.Scene {
           if (isShooting === false) {
               this.manageGreenLaser(this.physics.add.sprite(this.player.x, this.player.y, "greenLaser"));
               isShooting = true;
-            //   shootSound.play();
+              goodLaser.play();
           }
       }
     }
@@ -195,8 +213,6 @@ export default class SpaceInvaders extends Phaser.Scene {
                   score++;
                   scoreText.setText("Score: " + score);
 
-                //   explosionSound.play();
-
                   if ((score - ufoCount) === (enemyInfo.count.col * enemyInfo.count.row)) {
                       win();
                   }
@@ -211,21 +227,18 @@ export default class SpaceInvaders extends Phaser.Scene {
                   greenLaser.destroy();
                   clearInterval(i);
                   isShooting = false;
-
-                  scoreText.setText("Score: " + score);
-
-
-                //   explosionSound.play();
-
-                  if ((score - ufoCount) === (enemyInfo.count.col * enemyInfo.count.row)) {
-                      win()
-                  }
-
+                  boom.play();
                   bigInvader.destroy();
                   bigInvader.isDestroyed = true;
-                //   bigInvaderSound.stop();
-                  score++;
+                  ufoFly.stop();
+                  score+=2;
                   ufoCount++;
+
+                  scoreText.setText("Score: " + score);
+                
+                  if ((score - ufoCount) === (enemyInfo.count.col * enemyInfo.count.row)) {
+                    win()
+                  }
               }
           }
       }, 10);
@@ -233,7 +246,6 @@ export default class SpaceInvaders extends Phaser.Scene {
       this.physics.add.overlap(greenLaser, playerLava, function () {
           greenLaser.destroy();
           clearInterval(i);
-        //   explosionSound.play();
           isShooting = false;
       })
     }
@@ -256,7 +268,7 @@ export default class SpaceInvaders extends Phaser.Scene {
               clearInterval(i);
               lives--;
               livesText.setText("Lives: " + lives);
-            //   explosionSound.play();
+              boom.play();
 
               if (lives == 0) {
                   lose();
@@ -266,7 +278,6 @@ export default class SpaceInvaders extends Phaser.Scene {
 
       this.physics.add.overlap(redLaser, enemyLava, function () {
           redLaser.destroy();
-        //   explosionSound.play();
           clearInterval(i);
       })
     }
@@ -281,6 +292,7 @@ export default class SpaceInvaders extends Phaser.Scene {
         if (isStarted === true) {
             var enemy = enemies.children.entries[Phaser.Math.Between(0, enemies.children.entries.length - 1)];
             manageRedLaser(this.physics.add.sprite(enemy.x, enemy.y, "redLaser"), enemy);
+            badLaser.play();
         }
     }   
     
@@ -299,27 +311,32 @@ export default class SpaceInvaders extends Phaser.Scene {
         this.physics.add.overlap(bigInvader, bigInvaderLava, function () {
             bigInvader.destroy();
             bigInvader.isDestroyed = true;
-            // bigInvaderSound.stop();
+            ufoFly.stop();
         })
-        // bigInvaderSound.play();
+        ufoFly.play();
     }
 
     win() {
-    //   explosionSound.stop();
-    //   bigInvaderSound.stop();
-    //   shootSound.stop();
-    //   move.stop()
+      boom.stop();
+      ufoFly.stop();
+      badLaser.stop();
+      goodLaser.stop();
 
       alert(`You did it!\nOur astronauts are in safe hands!\n Score: ` + score);
+      music.stop();
       this.scene.stop("SpaceInvaders");
       this.scene.start("Math", Math);
     }
 
     lose() {
-        //   explosionSound.stop();
-        //   bigInvaderSound.stop();
-        //   shootSound.stop();
-        //   move.stop()    
-          alert(`You Lost :( \n Score: ` + score);
+      boom.stop();
+      ufoFly.stop();
+      badLaser.stop();
+      goodLaser.stop();
+
+      alert(`You Lost :( \nMaybe we should check our math again...\nScore: ` + score);
+      music.stop();
+      this.scene.stop("SpaceInvaders");
+      this.scene.start("Math", Math);
     }
   }
