@@ -1,6 +1,8 @@
 import Phaser from "phaser";
 import Player from "../entities/Player";
 import Pridle from "./Pridle";
+
+let music;
 let tItem;
 let techDoor;
 let tClueCount = 0;
@@ -76,8 +78,13 @@ export default class Technology extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.audio("bgMusic", ["../public/assets/audio/bgMusic.mp3"]);
+
   }
+
   create() {
+    music = this.sound.add("bgMusic", { loop: true });
+    music.play();
     let localCount = localStorage.getItem("tcount");
     if (localStorage.getItem("tech") === "complete") {
       let techClues = document.getElementById("tech-clues");
@@ -230,6 +237,7 @@ export default class Technology extends Phaser.Scene {
   }
   exit() {
     let techClues = document.getElementById("tech-clues");
+    music.stop();
     this.scene.stop("Technology");
     const num = localStorage.getItem("tcount");
     if (num === "4") {

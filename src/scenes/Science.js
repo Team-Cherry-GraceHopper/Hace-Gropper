@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import Player from "../entities/Player";
 import Memory from "../scenes/Memory";
 
+let music;
 let item;
 let sciDoor;
 let scienceClues = document.getElementById("science-clues");
@@ -76,10 +77,13 @@ export default class Science extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.audio("bgMusic", ["../public/assets/audio/bgMusic.mp3"]);
+
   }
 
   create() {
-
+  music = this.sound.add("bgMusic", { loop: true });
+    music.play();
     if (localStorage.getItem("science") === "complete") {
       scienceClues.classList.toggle("hidden");
     } else {
@@ -202,6 +206,7 @@ export default class Science extends Phaser.Scene {
 
   exit() {
     let sciClues = document.getElementById("science-clues");
+    music.stop();
     this.scene.stop("Science");
     const num = localStorage.getItem("scount");
     if (num === "4") {

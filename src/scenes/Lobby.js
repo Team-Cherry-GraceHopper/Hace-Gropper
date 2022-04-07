@@ -45,6 +45,7 @@ mathScene.innerHTML = localStorage.getItem("math")
 let Clues;
 let item;
 let object;
+let music;
 let SDoor;
 let TDoor;
 let EDoor;
@@ -78,8 +79,8 @@ function submitLName() {
     nameGuessCount = 1;
     let nameguess = document.getElementById("nameLguess");
     nameguess.classList.add("hidden");
-    lobbyClues.classList.toggle("hidden");
     let lobbyClues = document.getElementById("clue-list");
+    lobbyClues.classList.toggle("hidden");
     lobbyClues.classList.add("hidden");
     let lobbyScene = document.getElementById("lobbyscene");
     lobbyScene.innerHTML = "<b>Lobby</b>: Grace Hopper";
@@ -133,9 +134,12 @@ export default class Lobby extends Phaser.Scene {
         frameHeight: 34,
       }
     );
+    this.load.audio("bgMusic", ["../public/assets/audio/bgMusic.mp3"]);
   }
 
   create() {
+    music = this.sound.add("bgMusic", { loop: true });
+    music.play();
     if (
       localStorage.getItem("lobby") === "complete" &&
       localStorage.getItem("sci") === "complete" &&
@@ -143,6 +147,7 @@ export default class Lobby extends Phaser.Scene {
       localStorage.getItem("math") === "complete" &&
       localStorage.getItem("tech") === "complete"
     ) {
+      music.stop();
       this.scene.stop("Lobby");
       this.scene.start("EndCreds");
     }
@@ -269,6 +274,7 @@ export default class Lobby extends Phaser.Scene {
       dialogue.innerText = "try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
+    music.stop();
     this.scene.start("Technology", Technology);
   }
   enterERoom() {
@@ -277,6 +283,7 @@ export default class Lobby extends Phaser.Scene {
       dialogue.innerText = "try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
+    music.stop();
     this.scene.start("Engineering", Engineering);
   }
 
@@ -286,6 +293,7 @@ export default class Lobby extends Phaser.Scene {
       dialogue.innerText = "try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
+    music.stop();
     this.scene.start("Math", Math);
   }
 
@@ -295,6 +303,7 @@ export default class Lobby extends Phaser.Scene {
       dialogue.innerText = "try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
+    music.stop();
     this.scene.start("Science");
   }
 

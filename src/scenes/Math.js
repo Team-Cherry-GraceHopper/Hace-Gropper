@@ -3,6 +3,7 @@ import Player from "../entities/Player";
 import Lobby from "./Lobby";
 import SpaceInvaders from "./SpaceInvaders";
 
+let music;
 let item;
 let door;
 let rocket;
@@ -83,10 +84,13 @@ export default class Math extends Phaser.Scene {
         frameHeight: 32,
       }
     );
+    this.load.audio("bgMusic", ["../public/assets/audio/bgMusic.mp3"]);
+
   }
 
   create() {
-
+    music = this.sound.add("bgMusic", { loop: true });
+    music.play();
     let localCount = localStorage.getItem("mcount");
 
     if (localStorage.getItem("math") === "complete") {
@@ -146,7 +150,7 @@ export default class Math extends Phaser.Scene {
 
     this.cursors = this.input.keyboard.createCursorKeys();
 
-    let mathClueObjs = map.getObjectLayer("MathClueObjs")["objects"];
+    let mathClueObjs = map.getObjectLayer("MathClues")["objects"];
     item = this.physics.add.staticGroup();
 
     mathClueObjs.forEach((object) => {
@@ -253,16 +257,15 @@ export default class Math extends Phaser.Scene {
 
   startGame() {
     this.scene.stop("Math");
+    music.stop();
     this.scene.start("SpaceInvaders", SpaceInvaders);
   }
 
   exit() {
-    
-    // nameguess.classList.add("hidden");
-    // mathClues.classList.add("hidden");
+    music.stop();
+
     let mathClues = document.getElementById("math-clues");
     this.scene.stop("Math");
-    // const num = localStorage.getItem("mcount");
     mathClues.classList.add("hidden");
     let lobbyClues = document.getElementById("clue-list");
     lobbyClues.classList.toggle("hidden");

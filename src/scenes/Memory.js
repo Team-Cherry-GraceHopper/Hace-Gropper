@@ -10,8 +10,11 @@ export default class Memory extends Phaser.Scene {
   preload() {
     this.cameras.main.backgroundColor =
       Phaser.Display.Color.HexStringToColor("#423e41");
+      this.load.audio("minigame", ["../public/assets/audio/song.wav", "../public/assets/audio/song.ogg"]);
   }
   create() {
+    const music = this.sound.add("minigame", { loop: true });
+    music.play();
     const memory = this;
     const memoryGame = document.getElementById("memory");
     const canvas = document.querySelector("canvas");
@@ -90,6 +93,7 @@ export default class Memory extends Phaser.Scene {
     }
     function exitRoom() {
       memory.scene.stop("Memory");
+      music.stop();
       memory.scene.start("Lobby");
       memoryGame.classList.toggle("hidden");
       canvas.classList.remove("hidden");
