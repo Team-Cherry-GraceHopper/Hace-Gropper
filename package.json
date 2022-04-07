@@ -4,8 +4,9 @@
   "description": "2D top-down RPG to learn about women in STEM",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack --config webpack/prod.js ",    
-    "start": "webpack-dev-server --config webpack/base.js --open"
+    "build": "webpack --config webpack/base.js ",
+    "start": " --open",
+    "start:dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
     "url": "https://github.com/photonstorm/phaser3-project-template/issues"
   },
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "babel-loader": "^8.0.6",
@@ -31,11 +32,11 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.11.3",
-    "webpack-merge": "^4.2.2"
-  },
-  "dependencies": {
+    "webpack-merge": "^4.2.2",
     "@babel/preset-react": "^7.16.7",
+    "axios": "^0.26.1",
     "babel-preset-react": "^6.24.1",
+    "node.js": "^0.0.1-security",
     "path": "^0.12.7",
     "phaser": "^3.50.0"
   }
