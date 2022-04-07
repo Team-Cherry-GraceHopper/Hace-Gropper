@@ -78,6 +78,7 @@ export default class Scrammble extends Phaser.Scene {
       let currentIndex = letters.length;
       let temporaryValue;
       let randomIndex;
+
       while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -128,7 +129,6 @@ export default class Scrammble extends Phaser.Scene {
         info.innerHTML = "<span class='win'>You Win! Great job! </br></span>";
         exitScrammble();
       }
-
       console.log(`Word: ${word}`);
       usersWord.innerHTML = scrambleWord(word);
     }

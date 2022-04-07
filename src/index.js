@@ -29,12 +29,8 @@ class Game extends Phaser.Game {
     this.scene.add("Pridle", Pridle);
     this.scene.start("Lobby");
 
-    // change scene.start to see if it works to test it & make sure you import it on top
-
-    // this.scene.physics.world.enable(this);
-    // this.scene.add.existing(this);
+  
   }
 }
 
 const game = new Game(config);
-// console.log("scene", this.scene.key);
