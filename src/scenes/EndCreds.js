@@ -2,6 +2,9 @@ import Phaser from "phaser";
 
 let meItem;
 let lText;
+let krisText;
+let melissaText;
+let laurenText;
 let music;
 
 export default class EndCreds extends Phaser.Scene {
@@ -90,7 +93,29 @@ export default class EndCreds extends Phaser.Scene {
       fontSize: "15px",
       fill: "white",
     });
+
+    krisText = this.add.text(50, 25, `Kris did stuff here`, {
+      backgroundColor: "black",
+      fontSize: "15px",
+      fill: "white",
+    });
+
+    melissaText = this.add.text(6, 50, `blah blah`, {
+      backgroundColor: "black",
+      fontSize: "15px",
+      fill: "white",
+    });
+
+    laurenText = this.add.text(50, 50, `blah blah`, {
+      backgroundColor: "black",
+      fontSize: "15px",
+      fill: "white",
+    });
+
     lText.setScrollFactor(0);
+    krisText.setScrollFactor(0);
+    melissaText.setScrollFactor(0);
+    laurenText.setScrollFactor(0);
   }
 
   update() {}
