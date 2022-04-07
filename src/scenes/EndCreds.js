@@ -28,9 +28,10 @@ export default class EndCreds extends Phaser.Scene {
       "TeamCherry",
       "../public/assets/images/pridleflags/teamcherry.png"
     );
-    this.load.image("DUDE", "../public/assets/sprites/Dude_Monster.png");
-    this.load.image("OWL", "../public/assets/sprites/Owlet_Monster.png");
-    this.load.image("PINKMONSTER", "../public/assets/sprites/Pink_Monster.png");
+    this.load.image("katherine", "../public/assets/sprites/katherine.png");
+    this.load.image("mary", "../public/assets/sprites/marySprite.png");
+    this.load.image("rosalind", "../public/assets/sprites/rosalind.png");
+    this.load.image("lynn", "../public/assets/sprites/LYNN.png");
   }
 
   create() {
@@ -76,17 +77,12 @@ export default class EndCreds extends Phaser.Scene {
       obj.body.width = object.width;
       obj.body.height = object.height;
     });
-    
-    lText = this.add.text(
-      6,
-      25,
-      `L Phansalkar is a fucking hot ass developer`,
-      {
-        backgroundColor: "black",
-        fontSize: "15px",
-        fill: "white",
-      }
-    );
+
+    lText = this.add.text(6, 25, `L Phansalkar does stuff`, {
+      backgroundColor: "black",
+      fontSize: "15px",
+      fill: "white",
+    });
     lText.setScrollFactor(0);
   }
 
