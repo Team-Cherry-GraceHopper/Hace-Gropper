@@ -28,7 +28,7 @@ class Game extends Phaser.Game {
     this.scene.add("Scrammble", Scrammble);
     this.scene.add("Memory", Memory);
     this.scene.add("Pridle", Pridle);
-    this.scene.start("EndCreds");
+    this.scene.start("Lobby");
 
   
   }
