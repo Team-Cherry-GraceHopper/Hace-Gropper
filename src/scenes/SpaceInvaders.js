@@ -30,8 +30,8 @@ let enemyInfo = {
     width: 40,
     height: 30,
     count: {
-        row: 5,
-        col: 9
+        row: 4,
+        col: 7
     },
     offset: {
         top: 125,

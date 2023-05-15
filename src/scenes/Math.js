@@ -234,6 +234,7 @@ export default class Math extends Phaser.Scene {
     }
 
     let localCount = localStorage.getItem("mcount");
+    
     if (localCount === "4") {
       let dialogue = document.getElementById("inner");
       dialogue.innerText =

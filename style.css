@@ -49,7 +49,7 @@ h1 {
 
 body {
   display: flex;
-  flex-direction: colum;
+  flex-direction: column;
   flex-wrap: wrap;
   background-color: #000000;
 }
@@ -119,7 +119,12 @@ canvas {
   word-wrap: normal;
   font-size: 12px;
 }
-#clue-list h3,
+
+#clue-list h3 {
+  color: #000000;
+  text-align: left;
+}
+
 #science-clues h3,
 #engineering-clues h3,
 #math-clues h3,
@@ -128,16 +133,41 @@ canvas {
 }
 
 #rules {
+  display: flex;
   position: absolute;
   border: 2px solid black;
-  height: 650px;
-  width: 100%;
-  left: 0%;
-  top: 17%;
+  height: 400px;
+  width: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  top: 25%;
   background-image: linear-gradient(to bottom right, rgb(145, 214, 211), white);
   border-radius: 30px;
+}
+
+#rules, b {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  #rules, b {
+    font-size: 16px;
+  }
+  #rules, p {
+    font-size: 14px;
+  }
+}
+
+/* @media screen and (min-width: 600px) {
+  #rules, b {
+    font-size: 28px;
+  }
+} */
+
 #game {
   border: 2px solid black;
   background-color: rgb(145, 214, 211);

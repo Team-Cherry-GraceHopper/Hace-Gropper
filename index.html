@@ -2,168 +2,201 @@
 <html>
   <head>
     <title>Hace Gropper</title>
+    <link rel="icon" type="image/x-icon" href="public/assets/images/favicon.png">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
     <div id="title">
       <h1>Welcome to Hace Gropper</h1>
     </div>
-    
   </head>
+  
   <body>
     <p id="dialogue">
-      YOUR SPRITE SAYS: <text id="inner">try looking around the room a bit!</text>
+      YOUR SPRITE SAYS: <text id="inner">Try looking around the room a bit!</text>
     </p>
     <div id="game-body">
-    <button id="restart-hg">Start Game Over</button> <br />
-    <table id="main-menu">
-      <tbody>
-        <th style="text-align: center">Sprite Log</th>
-        <tr id="lobbyscene" style="font-size: small;"></tr>
-        <tr id="sciscene" style="font-size: small;"></tr>
-        <tr id="techscene" style="font-size: small;"></tr>
-        <tr id="engscene" style="font-size: small;"></tr>
-        <tr id="mathscene" style="font-size: small;"></tr>
-      </tbody>
-    </table>
+      <button id="restart-hg" onClick="window.location.href=window.location.href">Reset Game</button>
+      <br />
 
-    <div id="rules">
-      <h3 style="text-align: center">How to Play</h3>
+      <table id="main-menu">
+        <tbody>
+          <th style="text-align: left">Sprite Log</th>
+          <tr id="lobbyscene" style="font-size: small;"></tr>
+          <tr id="sciscene" style="font-size: small;"></tr>
+          <tr id="techscene" style="font-size: small;"></tr>
+          <tr id="engscene" style="font-size: small;"></tr>
+          <tr id="mathscene" style="font-size: small;"></tr>
+        </tbody>
+      </table>
 
-      <p>
-        <img src="/public/assets/images/keyArrows.png" /> <br />
+      <div id="rules">
+     
+        <script>
+          function goAway() {
+            document.getElementById("rules").style.opacity = 0;
+          }
+        </script>
       
-      <p><b>
-        HERES HOW TO PLAY:
-      </b>
-      </p>
-      <p>
-        1) Walk your little character (sprite) around the room
-        <p>
-           Each sprite is a Woman in STEM
-           <p>
-        2) Discover clues about your sprite's REAL life by bumping into special objects
-        <p>
-        3) Collect all the clues to unlock a guesssbox
-        <p>
-        4) You have 3 guesses before your sprite's name is revealed 
-        <p>
-        5) Collect all the sprite names to BEAT THE GAME
-      </p>
-      <button id="play-maingame-btn">Let's Play!</button> -->
-    </div>
-
-    <div id="root"></div>
-    <div id="clue-container">
-      <div>
-
-        <div id="nameLguess" class="hidden"></form>
-          <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
-          <input id="firstnamelguess" placeholder="first name (optional)"  />
-          <input id="lastnamelguess" placeholder="last name" />
-          <button id="sublname" >Submit</button>
+        <div class="how-to">
+          HOW TO PLAY:
+        
         </div>
-    <ul id="clue-list">
-      <h3 style="text-align: center">Clues: <span id="clueCount">0</span>/2</h3>
-      <li id="1" class="hidden" style="padding-left: 15px">
-        - served in the navy
-      </li>
-      <li id="2" class="hidden" style="padding-left: 15px">
-        - one of the first three computer programmers
-      </li>
-      <li id="99" class="hidden blink_me" style="padding-left: 15px">- You collected all the clues! Who am I?! --- Grace Hopper!</li>
-    </ul>
-    <div id="nameEguess" class="hidden"></form>
-      <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
-      <input id="firstenameguess" placeholder="first name (optional)"  />
-      <input id="lastenameguess" placeholder="last name" />
-      <button id="subename" >Submit</button>
-    </div>
-    <ul id="engineering-clues" class="hidden">
-      <h3 style="text-align: center">
-        Clues: <span id="eClueCount">0</span>/5
-      </h3>
-      <li id="7" class="hidden" style="padding-left: 15px">
-        - From the Cherokee Nation and the First Native American female engineer
-      </li>
-      <li id="8" class="hidden" style="padding-left: 15px">
-        - featured on the Native American 2019 one dollar coin
-      </li>
-      <li id="9" class="hidden" style="padding-left: 15px">
-        - founding member of the "Skunk Works" project, a secret design concept for
-        interplanetary space travel
-      </li>
-      <li id="10" class="hidden" style="padding-left: 15px">
-        - worked at Lockheed for 31 years 
-      </li>
-      <li id="11" class="hidden" style="padding-left: 15px">
-        - worked on the Agena rocket project, for flyby missions to Venus and Mars
-      </li>
-      <li id="100" class="hidden blink_me" style="padding-left: 15px">
-        - You collected all the clues! Who am I?! --- Mary Golda Ross!
-      </li>
-      </ul>
-      <div id="nameSguess" class="hidden"></form>
-        <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
-        <input id="firstnamesguess" placeholder="first name (optional)"  />
-        <input id="lastnamesguess" placeholder="last name" />
-        <button id="subsname" >Submit</button>
-     </div>
-    <ul id="science-clues" class="hidden"><h3 style="text-align: center;">Clues: <span id="sciClueCount">0</span>/4</h3>
-      <li id=3 class="hidden" style="padding-left: 15px;">- paved the way for discoveries in physical chemistry</li>
-      <li id=4 class="hidden" style="padding-left: 15px;">- discovery was one step away from the double helix formation (DNA)</li>
-      <li id=5 class="hidden" style="padding-left: 15px;">- research led to many breakthroughs in virology</li>
-      <li id=6 class="hidden" style="padding-left: 15px;">- studies on coal led to extracting oxygen from the air</li>
-      <li id=101 class="hidden blink_me" style="padding-left: 15px;"> - You collected all the clues! Who am I?! --- Rosalind Franklin!</li>
+        <div class="steps" >
+          <p>
+            1) Walk your character (sprite) around the room using the arrow keys
+          <p>
+              Each sprite is a Woman in STEM
+          <p>
+            2) Discover clues about your sprite's REAL life by bumping into special objects
+          <p>
+            3) Collect all the clues to unlock a guesssbox
+          <p>
+            4) You have 3 guesses before your sprite's name is revealed 
+          <p>
+            5) Guess all the sprite names to BEAT THE GAME
+          </p>
+        </div>
+        
+        <button id="play-maingame-btn" onClick="goAway()">Let's Play!</button> 
+      </div>
 
-    </ul>
-    <div id="nameTguess" class="hidden"></form>
-      <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
-      <input id="firstnametguess" placeholder="first name (optional)"  />
-      <input id="lastnametguess" placeholder="last name" />
-      <button id="subtname" >Submit</button>
+      <div id="root"></div>
+
+      <div id="clue-container">
+        <div>
+          <div id="nameLguess" class="hidden"></form>
+            <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
+            <input id="firstnamelguess" placeholder="First Name (optional)"  />
+            <input id="lastnamelguess" placeholder="Last Name" />
+            <button id="sublname" >Submit</button>
+          </div>
+        <ul id="clue-list">
+          <h3 style="text-align: left">Clues: <span id="clueCount">0</span>/2</h3>
+          <li id="1" class="hidden" style="padding-left: 15px">
+            - I served in the navy
+          </li>
+          <li id="2" class="hidden" style="padding-left: 15px">
+            - I was one of the first three computer programmers
+          </li>
+          <li id="99" class="hidden blink_me" style="padding-left: 15px">- You collected all the clues! Who am I?! --- Grace Hopper!</li>
+        </ul>
+        <div id="nameEguess" class="hidden"></form>
+          <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
+          <input id="firstenameguess" placeholder="First Name (optional)"  />
+          <input id="lastenameguess" placeholder="Last Name" />
+          <button id="subename" >Submit</button>
+        </div>
+        <ul id="engineering-clues" class="hidden">
+          <h3 style="text-align: left">
+            Clues: <span id="eClueCount">0</span>/5
+          </h3>
+          <li id="7" class="hidden" style="padding-left: 15px">
+            - I am from the Cherokee Nation and the First Native American female engineer
+          </li>
+          <li id="8" class="hidden" style="padding-left: 15px">
+            - I was featured on the Native American 2019 one dollar coin
+          </li>
+          <li id="9" class="hidden" style="padding-left: 15px">
+            - I was a founding member of the "Skunk Works" project, a secret design concept for
+            interplanetary space travel
+          </li>
+          <li id="10" class="hidden" style="padding-left: 15px">
+            - I worked at Lockheed for 31 years 
+          </li>
+          <li id="11" class="hidden" style="padding-left: 15px">
+            - I worked on the Agena rocket project, for flyby missions to Venus and Mars
+          </li>
+          <li id="100" class="hidden blink_me" style="padding-left: 15px">
+            - You collected all the clues! Who am I?! --- Mary Golda Ross!
+          </li>
+        </ul>
+        <div id="nameSguess" class="hidden"></form>
+          <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
+          <input id="firstnamesguess" placeholder="First Name (optional)"  />
+          <input id="lastnamesguess" placeholder="Last Name" />
+          <button id="subsname" >Submit</button>
+        </div>
+        <ul id="science-clues" class="hidden"><h3 style="text-align: left;">Clues: <span id="sciClueCount">0</span>/4</h3>
+          <li id=3 class="hidden" style="padding-left: 15px;">
+            - I paved the way for discoveries in physical chemistry
+          </li>
+          <li id=4 class="hidden" style="padding-left: 15px;">
+            - A discovery of mine was one step away from the double helix formation of DNA
+          </li>
+          <li id=5 class="hidden" style="padding-left: 15px;">
+            - My research led to many breakthroughs in virology
+          </li>
+          <li id=6 class="hidden" style="padding-left: 15px;">
+            - My studies on coal led to extracting oxygen from the air
+          </li>
+          <li id=101 class="hidden blink_me" style="padding-left: 15px;"> 
+            - You collected all the clues! Who am I?! --- Rosalind Franklin!
+          </li>
+        </ul>
+        <div id="nameTguess" class="hidden"></form>
+          <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
+          <input id="firstnametguess" placeholder="First Name (optional)"  />
+          <input id="lastnametguess" placeholder="Last Name" />
+          <button id="subtname" >Submit</button>
+        </div>
+        <ul id="tech-clues" class="hidden"><h3 style="text-align: left">Clues: <span id="tClueCount">0</span>/4</h3>
+          <li id=25 class="hidden" style="padding-left: 15px;">
+            - I began my “first career” at IBM in 1964 - fresh out of grad school but ready to help blaze trails in computer engineering. During my 4 years there, I invented DIS - dynamic instruction scheduling. DIS allowed computers to reorganize how they handled commands to maximize efficiency and data flow, and ultimately, led directly to the creation of modern portable computers. 
+          </li>
+          <li id=26 class="hidden" style="padding-left: 15px;">
+            - My “second career” had a much different trajectory. I started out with a low-level programming job, and eventually worked my way up  to a position at Xerox’s famous Palo Alto Research Center (PARC) in 1973. Unlike my work at IBM, my work on chip design at PARC was notorious right from the start - I even had a tech revolution named after me.
+          </li>
+          <li id=27 class="hidden" style="padding-left: 15px;">
+            - A major milestone in my career was working with Mead on our Intro to VLSI Design textbook, which promptly took the nation's universities by storm, selling over 70,000 copies and nicknamed "the  chip designer's bible"
+          </li>
+          <li id=28 class="hidden" style="padding-left: 15px;">
+            - In 2013,I lobbied a board of directors of the Institute of Electrical and Electronics Engineers (the largest engineering professional society) for transgender inclusion in the IEEE’s Code of Ethics.
+          </li>
+        </ul>
       </div>
-    <ul id="tech-clues" class="hidden"><h3 style="text-align: center;">Clues: <span id="tClueCount">0</span>/4</h3>
-      <li id=25 class="hidden" style="padding-left: 15px;">- “ I began my “first career” at IBM in 1964 - fresh out of grad school but ready to help blaze trails in computer engineering. During my 4 years there, I invented DIS - dynamic instruction scheduling. DIS allowed computers to reorganize how they handled commands to maximize efficiency and data flow, and ultimately, led directly to the creation of modern portable computers. 
-      </li>
-      <li id=26 class="hidden" style="padding-left: 15px;">- My “second career” had a much different trajectory. I started out with a low-level programming job, and eventually worked my way up  to a position at Xerox’s famous Palo Alto Research Center (PARC) in 1973. Unlike my work at IBM, my work on chip design at PARC was notorious right from the start - I even had a tech revolution named after me.</li>
-      <li id=27 class="hidden" style="padding-left: 15px;">A major milestone in my career was working with Mead on our Intro to VLSI Design textbook, which promptly took the nation's universities by storm, selling over 70,000 copies and nicknamed "the  chip designer's bible"</li>
-      <li id=28 class="hidden" style="padding-left: 15px;">- In 2013,I lobbied a board of directors of the Institute of Electrical and Electronics Engineers (the largest engineering professional society) for transgender inclusion in the IEEE’s Code of Ethics.</li>
-    </ul>
+      
+      <div id ="guessContainer" class="hidden"></br>PRIDE FLAG GUESSES</div>
+    
+      <div id="nameMguess" class="hidden"></form>
+        <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
+        <input id="firstnamemguess" placeholder="First Name (optional)"  />
+        <input id="lastnamemguess" placeholder="Last Name" />
+        <button id="submname" >Submit</button>
+      </div>
+      <ul id="math-clues" class="hidden"><h3 style="text-align: left">Clues: <span id="mathClueCount">0</span>/4</h3>
+        <li id=30 class="hidden" style="padding-left: 15px;">
+          - I started taking classes at West Virgina State University when I was only 13 years old.
+        </li>
+        <li id=31 class="hidden" style="padding-left: 15px;">
+          - In 2015 I was awarded a Presidential Medal of Freedom by Pres. Barack Obama.
+        </li>
+        <li id=32 class="hidden" style="padding-left: 15px;">
+          - My first job at NASA was as a "Calculator".
+        </li>
+        <li id=33 class="hidden" style="padding-left: 15px;">
+          - The first mission to the moon wouldn't have been possible without my contributions.
+        </li>
+        <li id=103 class="hidden" style="padding-left: 15px;">
+          - You collected all the clues! Who am I? --- Katherine Johnson!
+        </li>
+      </ul>
     </div>
-    <div id ="guessContainer" class="hidden"></br>PRIDE FLAG GUESSES</div>
-    
-    
-    <div id="nameMguess" class="hidden"></form>
-      <h3>WHO AM I? YOU HAVE 3 GUESSES</h3>
-      <input id="firstnamemguess" placeholder="first name (optional)"  />
-      <input id="lastnamemguess" placeholder="last name" />
-      <button id="submname" >Submit</button>
-      </div>
-    <ul id="math-clues" class="hidden"><h3 style="text-align: center;">Clues: <span id="mathClueCount">0</span>/4</h3>
-      <li id=30 class="hidden" style="padding-left: 15px;">- I started taking classes at West Virgina State University when I was only 13 years old</li>
-      <li id=31 class="hidden" style="padding-left: 15px;">- I was awarded a Presidential Medal of Freedom by Pres. Barack Obama.</li>
-      <li id=32 class="hidden" style="padding-left: 15px;">- My first job at NASA was as a "Calculator".</li>
-      <li id=33 class="hidden" style="padding-left: 15px;">- The first mission to the moon wouldn't have been possible without me.</li>
-      <li id=103 class="hidden" style="padding-left: 15px;"> - You collected all the clues! Who am I? --- Katherine Johnson!</li>
-    </ul>
   </div>
-  </div>
-    
 </div>
 
-    <div id="game" class="hidden">
-      <nav >
-        <h1>Scrambled Words</h1>
-        <div id="scrammblerules">
-          <p class="lead">Unscramble the words.</p>
-          <p>Type in your guess <small>(Enter works)</small>.</p>
-          <p>Get one correct and level up.</p>
-          <p>Get a word wrong three times and restart.</p>
-          <p>Finish level 8 and you win.</p>
-          <p>Good luck!</p>
-          <button id="play-btn">Let's Play</button>
-        </div>
-      </nav>
+  <div id="game" class="hidden">
+    <nav >
+      <h1>Scrambled Words</h1>
+      <div id="scrammblerules">
+        <p class="lead">Unscramble the words.</p>
+        <p>Type in your guess <small>(Enter works)</small>.</p>
+        <p>Get one correct and level up.</p>
+        <p>Get a word wrong three times and restart.</p>
+        <p>Finish level 8 and you win.</p>
+        <p>Good luck!</p>
+        <button id="play-btn">Let's Play</button>
+        /div>
+    </nav>
 
       <div id="game-container" class="hidden">
         <p>Level: <span id="level">1</span></p>

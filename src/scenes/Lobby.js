@@ -240,8 +240,20 @@ export default class Lobby extends Phaser.Scene {
       obj.body.height = object.height;
     });
 
-    this.physics.add.overlap(this.player, item, this.collect, null, this);
-    this.physics.add.overlap(this.player, engDoor, this.enterERoom, null, this);
+    this.physics.add.overlap(
+      this.player,
+      item,
+      this.collect,
+      null,
+      this
+    );
+    this.physics.add.overlap(
+      this.player,
+      engDoor,
+      this.enterERoom,
+      null,
+      this
+    );
     this.physics.add.overlap(
       this.player,
       mathDoor,
@@ -249,7 +261,13 @@ export default class Lobby extends Phaser.Scene {
       null,
       this
     );
-    this.physics.add.overlap(this.player, sciDoor, this.enterSRoom, null, this);
+    this.physics.add.overlap(
+      this.player,
+      sciDoor,
+      this.enterSRoom,
+      null,
+      this
+    );
     this.physics.add.overlap(
       this.player,
       techDoor,
@@ -271,7 +289,7 @@ export default class Lobby extends Phaser.Scene {
   enterTRoom() {
     let dialogue = document.getElementById("inner");
     setTimeout(() => {
-      dialogue.innerText = "try looking around the room a bit!";
+      dialogue.innerText = "Try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
     music.stop();
@@ -280,7 +298,7 @@ export default class Lobby extends Phaser.Scene {
   enterERoom() {
     let dialogue = document.getElementById("inner");
     setTimeout(() => {
-      dialogue.innerText = "try looking around the room a bit!";
+      dialogue.innerText = "Try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
     music.stop();
@@ -290,7 +308,7 @@ export default class Lobby extends Phaser.Scene {
   enterMRoom() {
     let dialogue = document.getElementById("inner");
     setTimeout(() => {
-      dialogue.innerText = "try looking around the room a bit!";
+      dialogue.innerText = "Try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
     music.stop();
@@ -300,7 +318,7 @@ export default class Lobby extends Phaser.Scene {
   enterSRoom() {
     let dialogue = document.getElementById("inner");
     setTimeout(() => {
-      dialogue.innerText = "try looking around the room a bit!";
+      dialogue.innerText = "Try looking around the room a bit!";
     }, 2000);
     this.scene.stop("Lobby");
     music.stop();
@@ -308,7 +326,7 @@ export default class Lobby extends Phaser.Scene {
   }
 
   collect(player, object) {
-    if (this.getItem(object.texture.key)) {
+    if (localStorage.getItem(object.texture.key)) {
       console.log("You already found that clue!");
       return false;
     }
@@ -319,6 +337,7 @@ export default class Lobby extends Phaser.Scene {
     let clue1 = document.getElementById("1");
     let clue2 = document.getElementById("2");
     let clue99 = document.getElementById("99");
+    
     let count = document.getElementById("clueCount");
     count.innerText = clueCount;
     let objName = object.texture.key;
